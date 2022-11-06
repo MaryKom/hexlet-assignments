@@ -8,15 +8,15 @@ class App {
     public static Map<String, Integer> getWordCount(String sentence) {
         Map<String, Integer> map = new HashMap<>();
         if (sentence.length() == 0) {
-            return map
+            return map;
         }
         String[] word = sentence.split(" ");
         for (String w: word) {
-            int count = map.get(w);
-            if (count == null) {
-                map.put(w, 0)
+            if (map.get(w) == null) {
+                map.put(w, 0);
             }
             else {
+                int count = map.get(w);
                 map.put(w, count + 1);
             }
         }
@@ -24,10 +24,11 @@ class App {
     }
 
     public static String toString(Map<String, Integer> map) {
-        String result = "";
-        for (Map.Entry<String, String> m: map.entrySet()) {
-            result += "  " + m.getKey() + ": " + m.getValue() +"\n";
+        String result = "{\n";
+        for (Map.Entry<String, Integer> m: map.entrySet()) {
+            result += "  " + m.getKey() + ": " + m.getValue() +"\n  ";
         }
+        result += "}";
         return result;
     }
 }
