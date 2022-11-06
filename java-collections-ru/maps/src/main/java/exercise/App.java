@@ -13,7 +13,7 @@ class App {
         String[] word = sentence.split(" ");
         for (String w: word) {
             if (map.get(w) == null) {
-                map.put(w, 0);
+                map.put(w, 1);
             }
             else {
                 int count = map.get(w);
@@ -24,9 +24,13 @@ class App {
     }
 
     public static String toString(Map<String, Integer> map) {
+        if (map.isEmpty()) {
+            return "{}";
+        }
+
         String result = "{\n";
         for (Map.Entry<String, Integer> m: map.entrySet()) {
-            result += "  " + m.getKey() + ": " + m.getValue() +"\n  ";
+            result += "  " + m.getKey() + ": " + m.getValue() +"\n";
         }
         result += "}";
         return result;
