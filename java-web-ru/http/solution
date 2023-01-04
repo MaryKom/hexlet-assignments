@@ -1,0 +1,7 @@
+POST /upload HTTP/1.1
+host: hexlet.local
+Content-length: 15
+Content-Type: text/plain
+Connection: close
+
+my request body
