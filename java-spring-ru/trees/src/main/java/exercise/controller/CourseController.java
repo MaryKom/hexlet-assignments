@@ -31,7 +31,7 @@ public class CourseController {
     }
 
     // BEGIN
-    @GetMapping(path = "/{id}/previous/")
+    @GetMapping(path = "/{id}/previous")
     public Iterable<Course> getParentIdCourseByPath(@PathVariable long id) {
         Course course = courseRepository.findById(id);
         String pathIds = course.getPath();
